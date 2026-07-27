@@ -1,0 +1,10 @@
+{
+  "title": "ePOV: eDNA Brazilian Plant Occurrence Validator",
+  "description": "ePOV builds a curated occurrence database for Brazilian plants (Angiosperms, Gymnosperms, Pteridophytes, Bryophytes) by combining Flora e Funga do Brasil, SpeciesLink and GBIF, applying multi-layer coordinate and record quality filters plus cross-source deduplication, and exposing a web interface for spatial queries.",
+  "upload_type": "software",
+  "license": "MIT",
+  "creators": [
+    { "name": "Vidart Ramos, Jeferson", "orcid": "0000-0002-0892-2806", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" }
+  ],
+  "keywords": ["environmental DNA","eDNA","biodiversity","plants","Brazil","GBIF","Flora e Funga do Brasil","occurrence data","bioinformatics"]
+}

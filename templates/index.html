@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ePOV — eDNA Brazilian Plant Occurrence Validator</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────────────────────── -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-mark">🌿</div>
+      <div class="logo-text">
+        <span class="logo-title">ePOV</span>
+        <span class="logo-sub">eDNA Brazilian Plant Occurrence Validator</span>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#" id="nav-build" title="Download occurrence data">Build CSV</a>
+      <a href="/api/docs" target="_blank">API</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── MAIN ────────────────────────────────────────────────────────────── -->
+<main class="layout">
+
+  <!-- LEFT: controls -->
+  <aside class="panel panel-left">
+    <div class="panel-heading">Search Parameters</div>
+
+    <div class="field-group">
+      <label class="field-label">Coordinates</label>
+      <div class="coord-row">
+        <div class="input-box">
+          <span class="input-tag">LAT</span>
+          <input id="lat" type="number" value="-15.78" step="0.0001" min="-33.75" max="5.27" />
+        </div>
+        <div class="input-box">
+          <span class="input-tag">LON</span>
+          <input id="lon" type="number" value="-47.93" step="0.0001" min="-73.99" max="-28.84" />
+        </div>
+      </div>
+      <p class="hint">Click anywhere on the map to set a point</p>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Search radius: <strong id="radius-val">100</strong> km</label>
+      <input type="range" id="radius" class="slider" min="10" max="500" value="100" step="10" />
+      <div class="slider-ends"><span>10 km</span><span>500 km</span></div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Plant group</label>
+      <div class="group-tabs" id="group-tabs">
+        <button class="gtab active" data-group="all">All</button>
+        <button class="gtab" data-group="Angiospermae">🌸 Angiospermas</button>
+        <button class="gtab" data-group="Gymnospermae">🌲 Gimnospermas</button>
+        <button class="gtab" data-group="Pteridophyta">🌿 Pteridófitas</button>
+        <button class="gtab" data-group="Bryophyta">🪴 Briófitas</button>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Data source</label>
+      <div class="radio-row">
+        <label class="radio-opt"><input type="radio" name="source" value="all" checked />All</label>
+        <label class="radio-opt"><input type="radio" name="source" value="Flora_Funga" />Flora</label>
+        <label class="radio-opt"><input type="radio" name="source" value="SpeciesLink" />SpeciesLink</label>
+        <label class="radio-opt"><input type="radio" name="source" value="GBIF" />GBIF</label>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Records: <strong id="top-val">50</strong></label>
+      <input type="range" id="top" class="slider" min="10" max="500" value="50" step="10" />
+      <div class="slider-ends"><span>10</span><span>All</span></div>
+    </div>
+
+    <div class="field-group">
+      <label class="radio-opt" style="justify-content:flex-start;gap:8px;border:none;padding:0">
+        <input type="checkbox" id="hide-duplicates" />
+        <span style="font-family:var(--font-mono);font-size:10px;color:var(--slate)">
+          Hide cross-bank duplicates
+        </span>
+      </label>
+    </div>
+
+    <button id="run-btn" class="btn-run">
+      <span>🔍</span> Find Occurrences
+    </button>
+
+    <div id="status" class="status hidden"></div>
+
+    <!-- Source legend -->
+    <div class="source-legend">
+      <div class="legend-title">Data sources</div>
+      <div class="source-row">
+        <span class="source-dot src-flora"></span>
+        Flora e Funga do Brasil
+      </div>
+      <div class="source-row">
+        <span class="source-dot src-splink"></span>
+        SpeciesLink
+      </div>
+      <div class="source-row">
+        <span class="source-dot src-gbif"></span>
+        GBIF (non-JBRJ)
+      </div>
+    </div>
+
+    <!-- List validator -->
+    <div class="validator-box">
+      <div class="val-title">Validate species list</div>
+      <p class="hint" style="margin-bottom:8px">
+        Upload a .txt with one species per line to check occurrence plausibility near the selected point.
+      </p>
+      <label class="upload-label" id="upload-label">
+        <input type="file" id="list-file" accept=".txt" />
+        <span id="upload-text">Choose .txt file</span>
+      </label>
+      <button id="validate-btn" class="btn-validate" disabled>Validate list</button>
+    </div>
+  </aside>
+
+  <!-- CENTER: map -->
+  <section class="panel-map">
+    <div id="map"></div>
+    <div class="map-coords" id="map-coords">—</div>
+  </section>
+
+  <!-- RIGHT: results -->
+  <aside class="panel panel-right">
+    <div class="results-head">
+      <div class="panel-heading">Occurrences</div>
+      <button class="btn-export hidden" id="export-btn">↓ Export CSV</button>
+    </div>
+
+    <div id="results-meta" class="results-meta hidden"></div>
+    <div id="group-bar" class="group-bar hidden"></div>
+
+    <div id="results-list" class="results-list">
+      <div class="empty-state">
+        <div class="empty-icon">🌱</div>
+        <p>Select a location on the map<br>and click <strong>Find Occurrences</strong></p>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
+<!-- ── DETAIL MODAL ──────────────────────────────────────────────────────── -->
+<div id="modal" class="modal hidden">
+  <div class="modal-bg" id="modal-bg"></div>
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ── VALIDATION MODAL ─────────────────────────────────────────────────── -->
+<div id="val-modal" class="modal hidden">
+  <div class="modal-bg" id="val-modal-bg"></div>
+  <div class="modal-box modal-wide">
+    <button class="modal-close" id="val-modal-close">✕</button>
+    <div id="val-modal-body"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>

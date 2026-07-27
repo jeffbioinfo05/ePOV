@@ -1,4 +1,6 @@
 # 🌿 ePOV
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21625717.svg)](https://doi.org/10.5281/zenodo.21625717)
+
 **eDNA Brazilian Plant Occurrence Validator**
 
 ePOV builds a curated occurrence database for Brazilian plants (Angiospermas,

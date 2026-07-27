@@ -13,7 +13,11 @@ authors:
     family-names: Vidart Ramos
     orcid: "https://orcid.org/0000-0002-0892-2806"
     affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
-version: 1.0.0
+  - given-names: Guilherme
+    family-names: Duarte Prado
+    orcid: "https://orcid.org/0000-0001-7435-6235"
+    affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
+version: 1.0.1
 date-released: 2026-07-27
 license: MIT
 keywords:

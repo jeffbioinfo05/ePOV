@@ -4,8 +4,10 @@
   "upload_type": "software",
   "license": "MIT",
   "creators": [
-    { "name": "Vidart Ramos, Jeferson", "orcid": "0000-0002-0892-2806", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" },
-    { "name": "Duarte Prado, Guilherme", "orcid": "0000-0001-7435-6235", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" }
+    { "name": "Duarte Prado, Guilherme", "orcid": "0000-0001-7435-6235", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" },
+    { "name": "Matos Paggi, Gecele", "orcid": "0000-0003-2572-8471", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" },
+    { "name": "Pedroso Lorenz, Aline", "orcid": "0000-0002-2810-2282", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" },
+    { "name": "Vidart Ramos, Jeferson", "orcid": "0000-0002-0892-2806", "affiliation": "Universidade Federal de Mato Grosso do Sul (UFMS)" }
   ],
   "keywords": ["environmental DNA","eDNA","biodiversity","plants","Brazil","GBIF","Flora e Funga do Brasil","occurrence data","bioinformatics"]
 }

@@ -9,13 +9,21 @@ abstract: >-
   and exposing a web interface for spatial queries.
 type: software
 authors:
-  - given-names: Jeferson
-    family-names: Vidart Ramos
-    orcid: "https://orcid.org/0000-0002-0892-2806"
-    affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
   - given-names: Guilherme
     family-names: Duarte Prado
     orcid: "https://orcid.org/0000-0001-7435-6235"
+    affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
+  - given-names: Gecele
+    family-names: Matos Paggi
+    orcid: "https://orcid.org/0000-0003-2572-8471"
+    affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
+  - given-names: Aline
+    family-names: Pedroso Lorenz
+    orcid: "https://orcid.org/0000-0002-2810-2282"
+    affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
+  - given-names: Jeferson
+    family-names: Vidart Ramos
+    orcid: "https://orcid.org/0000-0002-0892-2806"
     affiliation: "Universidade Federal de Mato Grosso do Sul (UFMS)"
 version: 1.0.1
 date-released: 2026-07-27

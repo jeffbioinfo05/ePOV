@@ -1,0 +1,46 @@
+plot,radius_km,category,n_species,supported,supported_pct
+PCG-121,10.0,Both methods,8,8,100.0
+PCG-121,10.0,eDNA only,50,32,64.0
+PCG-121,10.0,Traditional only,7,6,85.71
+PCG-121,50.0,Both methods,8,8,100.0
+PCG-121,50.0,eDNA only,50,43,86.0
+PCG-121,50.0,Traditional only,7,6,85.71
+PCG-121,100.0,Both methods,8,8,100.0
+PCG-121,100.0,eDNA only,50,44,88.0
+PCG-121,100.0,Traditional only,7,6,85.71
+PCG-168,10.0,Both methods,3,3,100.0
+PCG-168,10.0,eDNA only,29,25,86.21
+PCG-168,10.0,Traditional only,6,5,83.33
+PCG-168,50.0,Both methods,3,3,100.0
+PCG-168,50.0,eDNA only,29,28,96.55
+PCG-168,50.0,Traditional only,6,6,100.0
+PCG-168,100.0,Both methods,3,3,100.0
+PCG-168,100.0,eDNA only,29,28,96.55
+PCG-168,100.0,Traditional only,6,6,100.0
+PCG-173,10.0,Both methods,6,6,100.0
+PCG-173,10.0,eDNA only,61,43,70.49
+PCG-173,10.0,Traditional only,10,8,80.0
+PCG-173,50.0,Both methods,6,6,100.0
+PCG-173,50.0,eDNA only,61,54,88.52
+PCG-173,50.0,Traditional only,10,9,90.0
+PCG-173,100.0,Both methods,6,6,100.0
+PCG-173,100.0,eDNA only,61,55,90.16
+PCG-173,100.0,Traditional only,10,9,90.0
+PCG-235,10.0,Both methods,9,9,100.0
+PCG-235,10.0,eDNA only,24,21,87.5
+PCG-235,10.0,Traditional only,5,3,60.0
+PCG-235,50.0,Both methods,9,9,100.0
+PCG-235,50.0,eDNA only,24,23,95.83
+PCG-235,50.0,Traditional only,5,3,60.0
+PCG-235,100.0,Both methods,9,9,100.0
+PCG-235,100.0,eDNA only,24,23,95.83
+PCG-235,100.0,Traditional only,5,3,60.0
+All plots,10.0,Both methods,19,19,100.0
+All plots,10.0,eDNA only,74,48,64.86
+All plots,10.0,Traditional only,14,11,78.57
+All plots,50.0,Both methods,19,19,100.0
+All plots,50.0,eDNA only,74,63,85.14
+All plots,50.0,Traditional only,14,12,85.71
+All plots,100.0,Both methods,19,19,100.0
+All plots,100.0,eDNA only,74,65,87.84
+All plots,100.0,Traditional only,14,12,85.71

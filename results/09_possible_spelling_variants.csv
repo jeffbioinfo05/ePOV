@@ -1,0 +1,6 @@
+name,similar_name,in_eDNA,in_traditional,similar_in_epov,similarity
+Borreria semiamplexicaulis,Borreria semiamplexicaule,True,False,True,0.941
+Chromolaena maximilianii,Chromolaena maximiliani,True,False,True,0.979
+Ipomoea marabaensis,Ipomoea marabensis,True,True,True,0.973
+Miconia heliotropoides,Miconia heliotropioides,True,False,True,0.978
+Myrcia multiflora,Myrcia minutiflora,True,False,True,0.914
